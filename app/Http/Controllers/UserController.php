@@ -16,7 +16,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         if ($user) {
-            return view('', ['user' => $user]);
+            return view('/home', compact(['user']));
         } else {
             return redirect('/');
         }
@@ -70,5 +70,12 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('auth');
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Tags::class);
+            $table->integer('tag_id');
             $table->string('title');
             $table->string('description');
             $table->string('status');

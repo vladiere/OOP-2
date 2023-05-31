@@ -12,7 +12,9 @@ class TodosController extends Controller
      */
     public function index()
     {
-        //
+        $todos = Todos::all();
+
+        return view('/home', compact(['todos']));
     }
 
     /**
