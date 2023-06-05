@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tags;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TagsController extends Controller
 {
@@ -12,7 +13,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -20,7 +21,28 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $request->validate([
+            'tag' => 'required|min:3',
+            'description' => 'required|min:3'
+        ]);
+
+        $existingTag = Tags::where('user_id', Auth::user()->id)
+            ->where('tag', $request->tag)
+            ->exists();
+
+        if ($existingTag) {
+            return back()->with(['error' => 'You already have a this tag']);
+        }
+
+        Tags::create([
+            'user_id' => Auth::user()->id,
+            'tag' => $request->tag,
+            'description' => $request->description
+        ]);
+
+        return back()->with(['success' => 'Tag added successfully']);
     }
 
     /**

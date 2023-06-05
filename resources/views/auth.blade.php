@@ -1,6 +1,6 @@
 @include('components.header')
 
-<div class="contianer-fluid">
+<div class="contianer-fluid mt-4">
     <div class="column d-flex justify-content-center">
         <div class="w-25">
             <img src="https://www.pngall.com/wp-content/uploads/5/Vector-Checklist-PNG.png" alt="..."

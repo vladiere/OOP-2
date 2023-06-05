@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TagsController;
+use App\Http\Controllers\TagsUserTodosController;
 use App\Http\Controllers\TodosController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -19,19 +21,19 @@ Route::get('/', function () {
     return view('auth');
 })->name('auth');
 
-Route::get('/add-todos', function () {
-    return view('todos.todos');
-})->name('add-todos');
 
 Route::get('/add-tags', function () {
     return view('tags.tags');
 })->name('add-tags');
 
+Route::post('/add-tags', [TagsController::class, 'store']);
 
 Route::post('/auth', [UserController::class, 'store'])->name('login');
 
-Route::get('/home', [UserController::class, 'index'])->name('home');
+Route::get('/add-todos', [TagsUserTodosController::class, 'TodosIndex'])->name('add-todos');
 
-Route::get('/home', [TodosController::class, 'index'])->name('todos-list');
+Route::get('/home', [TagsUserTodosController::class, 'HomeIndex'])->name('home');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::post('/add-todo', [TodosController::class, 'store'])->name('add-todo');

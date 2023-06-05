@@ -22,7 +22,13 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        $request->validate([
+            'title' => 'required|min:3',
+            'description' => 'required|min:3',
+            'status' => 'required|min:3',
+        ]);
     }
 
     /**

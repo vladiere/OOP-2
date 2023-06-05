@@ -11,16 +11,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $user = Auth::user();
 
-        if ($user) {
-            return view('/home', compact(['user']));
-        } else {
-            return redirect('/');
-        }
-    }
 
     /**
      * Store a newly created resource in storage.

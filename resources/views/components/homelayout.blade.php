@@ -2,7 +2,7 @@
 
 
 <div class="container text-center">
-    <div class="mt-5 d-flex justify-content-center">
+    <div class="mt-3 d-flex justify-content-center">
         <a class="btn btn-primary rounded-3 text-white fs-5 p-2 me-3" title="Logout" href="/home"><i
                 class="bi bi-house"></i>
             Home</a>
@@ -16,7 +16,7 @@
 </div>
 
 
-<hr class="mt-5">
+<hr class="mt-3">
 
 <div class="container">
     {{ $slot }}

@@ -21,6 +21,16 @@ class User extends Authenticatable
         'name',
     ];
 
+    public function todos()
+    {
+        return $this->hasMany(Todos::class);
+    }
+
+    public function tags()
+    {
+        return $this->hasMany(Tags::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
