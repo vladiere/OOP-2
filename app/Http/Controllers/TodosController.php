@@ -28,7 +28,6 @@ class TodosController extends Controller
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required|min:3',
-            'status' => 'required|min:3',
         ]);
 
         Todos::create([
@@ -36,7 +35,7 @@ class TodosController extends Controller
             'title' => $request->title,
             'tag_id' => $request->tag_id,
             'description' => $request->description,
-            'status' => $request->status,
+            'status' => 'pending',
         ]);
 
         return redirect('home')->with(['success' => 'Todo listed successfully']);
@@ -45,7 +44,7 @@ class TodosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(todos $todos)
+    public function show(Todos $todos)
     {
         //
     }
@@ -53,16 +52,30 @@ class TodosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, todos $todos)
+    public function update(Request $request, Todos $todo)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:3',
+            'description' => 'required|min:3',
+        ]);
+
+        $todo->update([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('home')->with(['success' => 'Todo has been updated']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(todos $todos)
+    public function destroy(Todos $todo)
     {
-        //
+
+        // dd($todo);
+        $todo->delete();
+
+        return redirect()->route('home')->with(['success' => 'Todo list removed successfully']);
     }
 }

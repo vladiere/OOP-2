@@ -35,21 +35,6 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div class="form-floating mb-3">
-                    <input type="text"
-                        class="form-control @error('status')
-                        is-invalid
-                    @enderror"
-                        name="status" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Status</label>
-                    @error('status')
-                        <span class="text-danger-emphasis">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-4">
                 <div class="form-floating">
                     <select class="form-select text-capitalize" id="floatingSelect"
                         aria-label="Floating label select example" name="tag_id">

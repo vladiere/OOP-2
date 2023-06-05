@@ -16,24 +16,34 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// User
+
+// Get
 Route::get('/', function () {
     return view('auth');
 })->name('auth');
-
 
 Route::get('/add-tags', function () {
     return view('tags.tags');
 })->name('add-tags');
 
-Route::post('/add-tags', [TagsController::class, 'store']);
-
-Route::post('/auth', [UserController::class, 'store'])->name('login');
-
-Route::get('/add-todos', [TagsUserTodosController::class, 'TodosIndex'])->name('add-todos');
-
 Route::get('/home', [TagsUserTodosController::class, 'HomeIndex'])->name('home');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::get('/add-todos', [TagsUserTodosController::class, 'TodosIndex'])->name('add-todos');
+
+
+// Post
+Route::post('/add-tags', [TagsController::class, 'store']);
+
+Route::post('/auth', [UserController::class, 'store'])->name('login');
+
 Route::post('/add-todo', [TodosController::class, 'store'])->name('add-todo');
+
+
+// Delete
+Route::delete('/remove-todo/{todo}', [TodosController::class, 'destroy'])->name('remove-todo');
+
+
+// Put
+Route::put('/update-todo/{todo}', [TodosController::class, 'update'])->name('done-todo');
