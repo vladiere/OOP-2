@@ -15,9 +15,7 @@ class TagsUserTodosController extends Controller
         $user = Auth::user();
 
         if ($user) {
-            $todos = Todos::with('todos')->where('user_id', Auth::user()->id)->get();
-
-            // dd($todos);
+            $todos = Todos::with('tag')->where('user_id', Auth::user()->id)->get();
 
             return view('/home', compact(['user', 'todos']));
         } else {

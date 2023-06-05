@@ -10,6 +10,7 @@ class Todos extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'title',
         'tag_id',
         'description',
@@ -17,6 +18,16 @@ class Todos extends Model
     ];
 
     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function tag()
+    {
+        return $this->belongsTo(Tags::class);
+    }
+
+    public function todos()
     {
         return $this->belongsTo(User::class);
     }

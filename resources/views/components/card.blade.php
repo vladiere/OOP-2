@@ -1,3 +1,3 @@
-<div {{ $attributes->merge(['class', 'd-flex column w-75']) }}>
+<div {{ $attributes->merge(['class', 'd-flex row flex-wrap']) }}>
     {{ $slot }}
 </div>

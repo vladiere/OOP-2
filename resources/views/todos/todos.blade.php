@@ -1,5 +1,5 @@
 <x-homelayout class="container">
-    {{-- {{ dd($tags) }} --}}
+
     <form action="/add-todo" method="POST">
         @csrf
 
@@ -21,11 +21,11 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="form-floating mb-3">
-                    <input type="text"
+                    <textarea type="text"
                         class="form-control @error('description')
                         is-invalid
                     @enderror"
-                        name="description" id="floatingPassword" placeholder="Password">
+                        name="description" id="floatingPassword" placeholder="Password" style="height: 100px"></textarea>
                     <label for="floatingPassword">Descriptions</label>
                     @error('description')
                         <span class="text-danger-emphasis">{{ $message }}</span>
