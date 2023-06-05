@@ -29,6 +29,8 @@ class TodosController extends Controller
             'description' => 'required|min:3',
             'status' => 'required|min:3',
         ]);
+
+        dd($request->all());
     }
 
     /**

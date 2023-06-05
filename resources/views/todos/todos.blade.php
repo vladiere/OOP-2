@@ -52,12 +52,12 @@
             <div class="col-md-4">
                 <div class="form-floating">
                     <select class="form-select text-capitalize" id="floatingSelect"
-                        aria-label="Floating label select example">
+                        aria-label="Floating label select example" name="tag_id">
                         @if (count($tags) == 0)
                             <option value="0">NO Tags Available</option>
                         @else
                             @foreach ($tags as $tag)
-                                <option value="{{ $tag->tag }}">{{ $tag->tag }}</option>
+                                <option value="{{ $tag->id }}">{{ $tag->tag }}</option>
                             @endforeach
                         @endif
                     </select>
