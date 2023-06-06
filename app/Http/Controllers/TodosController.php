@@ -52,19 +52,13 @@ class TodosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Todos $todo)
+    public function update(Todos $todo)
     {
-        $request->validate([
-            'title' => 'required|min:3',
-            'description' => 'required|min:3',
-        ]);
-
         $todo->update([
-            'title' => $request->title,
-            'description' => $request->description,
+            'status' => 'done',
         ]);
 
-        return redirect()->route('home')->with(['success' => 'Todo has been updated']);
+        return redirect()->route('home')->with(['success' => 'Todo is done']);
     }
 
     /**

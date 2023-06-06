@@ -30,4 +30,11 @@ class TagsUserTodosController extends Controller
 
         return view('todos.todos', compact(['tags', 'todos']));
     }
+
+    public function TagsIndex()
+    {
+        $tags = Tags::with('user')->where('user_id', Auth::user()->id)->get();
+
+        return view('tags.index', compact(['tags']));
+    }
 }

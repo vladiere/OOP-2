@@ -64,8 +64,10 @@ class TagsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tags $tags)
+    public function destroy(Tags $tag)
     {
-        //
+        $tag->delete();
+
+        return redirect()->route('tags-list')->with(['success' => 'Tag removed successfully']);
     }
 }

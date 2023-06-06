@@ -32,9 +32,10 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/add-todos', [TagsUserTodosController::class, 'TodosIndex'])->name('add-todos');
 
+Route::get('/tags-list', [TagsUserTodosController::class, 'TagsIndex'])->name('tags-list');
 
 // Post
-Route::post('/add-tags', [TagsController::class, 'store']);
+Route::post('/add-tags', [TagsController::class, 'store'])->name('add-tags');
 
 Route::post('/auth', [UserController::class, 'store'])->name('login');
 
@@ -43,7 +44,8 @@ Route::post('/add-todo', [TodosController::class, 'store'])->name('add-todo');
 
 // Delete
 Route::delete('/remove-todo/{todo}', [TodosController::class, 'destroy'])->name('remove-todo');
+Route::delete('/remove-tag/{tag}', [TagsController::class, 'destroy'])->name('remove-tag');
 
 
 // Put
-Route::put('/update-todo/{todo}', [TodosController::class, 'update'])->name('done-todo');
+Route::put('/checked-todo/{todo}', [TodosController::class, 'update'])->name('done-todo');

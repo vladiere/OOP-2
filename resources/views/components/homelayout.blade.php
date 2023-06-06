@@ -18,7 +18,7 @@
                         Custom Tags</a>
                 </li>
                 <li>
-                    <a class="dropdown-item fs-5 p-2" href="#"><i class="bi bi-nut"></i> Manage
+                    <a class="dropdown-item fs-5 p-2" href="{{ route('tags-list') }}"><i class="bi bi-nut"></i> Manage
                         Tags</a>
                 </li>
                 <li>
